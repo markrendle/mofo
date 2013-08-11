@@ -57,6 +57,8 @@ The shape of an object graph can be expressed using *Brian's Awesomely Descripti
 
 To specify a boolean in a schema, use the `?` null signifier.
 
+To indicate that a property may be of any type, use `*`.
+
 #### Embedding BADASS
 
 To include a BADASS declaration within a MOFO object, enclose it in parentheses `()`
