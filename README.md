@@ -11,6 +11,8 @@ MOFO reduces the cruft and does dates.
 
 I didn't do CS or anything like that, so I don't know BNF; therefore, the following will be in English.
 
+**MIME type:** `application/mofo`
+
 ### Primitives
 
 Five basic primitive data types are supported: String, Number, Date, Boolean and Binary:
