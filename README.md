@@ -18,7 +18,9 @@ I didn't do CS or anything like that, so I don't know BNF; therefore, the follow
 Five basic primitive data types are supported: String, Number, Date, Boolean and Binary:
 
 * String elements are surrounded by $, as in `$MOFO is awesome$`.
-  * An actual $ symbol in a string is escaped by doubling, as in `$Total: $$599.99$`
+  * An actual $ symbol in a string is escaped with a backslash, as in `$Total: \$599.99$`
+  * Standard special string characters are represented as usual: `\n`, `\t`, etc
+  * Actual backslashes are represented by a double backslash
   * A null string is represented by `$$`
 * Number elements are surrounded by #, as in `42`
   * A null number is represented by `##`
@@ -54,10 +56,10 @@ Example:
 
 Examples:
 * Numbers: `[#0#1#1#2#3#5#8#13#21#]`
-* Strings: `[$Alice$Bob$Charlie$]`
+* Strings: `[$Alice$Bob$Charlie$$Eve$]` (The `$$` represents a null element)
 * Dates: `[/1970-01-01/1601-01-01/]`
 * Booleans: `[^^^!!?^!]`
-* Mixed (string, string, number, boolean, date): `[$Alice$Bob$#42#^/1752-09-14/]`
+* Mixed (string, string, number, boolean, date, null string): `[$Alice$Bob$#42#^/1752-09-14/$$]`
 
 ### Whitespace
 
