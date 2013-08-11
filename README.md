@@ -48,6 +48,15 @@ Example:
 {First name$Douglas$Last name$Adams$Date of birth/1952-03-11/}
 ````
 
+#### Object graph schema
+
+The shape of an object graph can be expressed using this lightweight syntax (suggested by Brian Kardell):
+````
+{First name$Last name$Date of birth/}
+````
+
+To specify a boolean in a schema, use the `?` null signifier.
+
 #### Lists
 
 * Lists are surrounded by [ and ]
@@ -99,6 +108,12 @@ Which, since whitespace is insignificant, could also be formatted thusly:
   Thumbnail &94a2f19094213a6f8241a9408266f957&
   Crew [$Cochrane$Riker$La Forge$]
 }
+````
+
+Schema:
+
+````
+{Name$Chassis$Drive$First launch/Real?Thumbnail&Crew[$]}
 ````
 
 **Best. Wire format. Ever.**
