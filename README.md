@@ -50,7 +50,7 @@ Example:
 
 #### Object graph schema
 
-The shape of an object graph can be expressed using this lightweight syntax (suggested by Brian Kardell):
+The shape of an object graph can be expressed using *Brian's Awesomely Descriptive And Short Schema for MOFO* (suggested by Brian Kardell):
 ````
 {First name$Last name$Date of birth/}
 ````
@@ -110,7 +110,7 @@ Which, since whitespace is insignificant, could also be formatted thusly:
 }
 ````
 
-Schema:
+BADASS/MOFO Schema:
 
 ````
 {Name$Chassis$Drive$First launch/Real?Thumbnail&Crew[$]}
