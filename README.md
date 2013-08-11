@@ -13,13 +13,14 @@ I didn't do CS or anything like that, so I don't know BNF; therefore, the follow
 
 ### Primitives
 
-Five primitive data types are supported: String, Number, Date, Boolean and Binary:
+Five basic primitive data types are supported: String, Number, Date, Boolean and Binary:
 
 * String elements are surrounded by $, as in `$MOFO is awesome$`.
   * An actual $ symbol in a string is escaped by doubling, as in `$Total: $$599.99$`
   * A null string is represented by `$$`
 * Number elements are surrounded by #, as in `42`
   * A null number is represented by `##`
+  * More explicit number types can be expressed within the delimiters using [the C/C++ numeric literal notations](http://www.cplusplus.com/doc/tutorial/constants/).
 * Dates are surrounded by / and are in ISO 8601, as in `/2013-08-11T15:17:10Z/`
   * A null date is represented by `//`
 * Boolean values are not delimited; they are represented by the single characters `^` for true and `!` for false
