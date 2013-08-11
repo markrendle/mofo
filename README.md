@@ -57,6 +57,15 @@ The shape of an object graph can be expressed using *Brian's Awesomely Descripti
 
 To specify a boolean in a schema, use the `?` null signifier.
 
+#### Embedding BADASS
+
+To include a BADASS declaration within a MOFO object, enclose it in parentheses `()`
+
+Example:
+````
+{Class$Person$Schema({First name$Last name$Date of birth/Address{House$Street$City$Region$Postcode$Country$}})}
+````
+
 #### Lists
 
 * Lists are surrounded by [ and ]
