@@ -71,6 +71,7 @@ This JSON:
 {
   "Name": "Phoenix",
   "Chassis": "Titan V",
+  "Drive": "Warp",
   "First launch": "5th April 2063",
   "Thumbnail": ???,
   "Real": false,
@@ -84,4 +85,18 @@ Is equivalent to this MOFO:
 {Name$Phoenix$Chassis$Titan V$Drive$Warp$First launch/2063-04-05/Real!Thumbnail&94a2f19094213a6f8241a9408266f957&Crew[$Cochrane$Riker$La Forge$]}
 ````
 
-Which is clearly way better.
+Which, since whitespace is insignificant, could also be formatted thusly:
+
+````
+{
+  Name $Phoenix$
+  Chassis $Titan V$
+  Drive $Warp$
+  First launch /2063-04-05/
+  Real !
+  Thumbnail &94a2f19094213a6f8241a9408266f957&
+  Crew [$Cochrane$Riker$La Forge$]
+}
+````
+
+**Best. Wire format. Ever.**
