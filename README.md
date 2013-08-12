@@ -4,8 +4,8 @@ Everybody seems to be creating serialization formats, so here's mine: Mark's Obj
 
 ## Rationale
 
-JSON is fairly lightweight, but it's still cruftier than it needs to be and doesn't handle dates properly.
-MOFO reduces the cruft and does dates.
+JSON is fairly lightweight, but it's still cruftier than it needs to be and doesn't handle dates or some other really useful bits properly.
+MOFO reduces the cruft and does additional useful stuff (dates, binaries, typed nulls and arrays, binary representation... and comments).
 
 ## RFC
 
@@ -58,7 +58,6 @@ The shape of an object graph can be expressed using *Brian's Awesomely Descripti
 To specify a boolean in a schema, use the `?` null signifier.
 
 To indicate that a property may be of any type, use `*`.
-
 #### Embedding BADASS
 
 To include a BADASS declaration within a MOFO object, enclose it in parentheses `()`
@@ -72,13 +71,15 @@ Example:
 
 * Lists are surrounded by [ and ]
 * Elements within lists are naturally delimited
-  * Consecutive elements of the same type are split by a single instance of that type's delimiter
+  * Consecutive elements of the same type are split by a single instance of that type's delimiter (or in the case of objects and arrays, their pairs)
 
 Examples:
 * Numbers: `[#0#1#1#2#3#5#8#13#21#]`
 * Strings: `[$Alice$Bob$Charlie$$Eve$]` (The `$$` represents a null element)
 * Dates: `[/1970-01-01/1601-01-01/]`
 * Booleans: `[^^^!!?^!]`
+* Objects: `[{color$blue}{color$red}]`
+* Arrays: `[[#4#2]][[#6$x#7]]`
 * Mixed (string, string, number, boolean, date, null string): `[$Alice$Bob$#42#^/1752-09-14/$$]`
 
 ### Whitespace
@@ -111,13 +112,18 @@ Which, since whitespace is insignificant, could also be formatted thusly:
 
 ````
 {
-  Name $Phoenix$
+  Name $Phoenix$ 
   Chassis $Titan V$
   Drive $Warp$
   First launch /2063-04-05/
   Real !
   Thumbnail &94a2f19094213a6f8241a9408266f957&
   Crew [$Cochrane$Riker$La Forge$]
+  ©© 
+     And it can have comments...
+     Comments: Do you speak it MOFO?
+     Yes, yes I do.
+  ©©
 }
 ````
 
@@ -127,4 +133,28 @@ BADASS/MOFO Schema:
 {Name$Chassis$Drive$First launch/Real?Thumbnail&Crew[$]}
 ````
 
+#### More Badassery...
+
+If basic BADASS just isn't enough, there is additional "Extra Really Yieldless" syntax which might be useful for code generators, basic data validation descriptions for explaining your service, generating empty records 
+and other such non-sense...  
+
+BADASSERY, if it is applied, is done so via trailing `<` annotations `>`.  
+
+Annotations are generally range expressions in which either side may be unspecified, type clarity or enumerations:  
+
+ * For numbers this can include:
+   * the type - as in `{calories#<u>}` which means that I may take in from 0 up to an unsigned long's worth of calories.
+   * a range as in in which either number can be unbound and the first may include a type... `{age<21:100>}` means a value between 21 and 100 (drinking age in the US). 
+ * For strings, this can contain:
+   * a ranged length - as in  `firstName$<1:32>` (a requied string less than 32 characters)
+   * an enumeration of comma separated values, as in `MOFO$<Merely Awesome,The Awesomest>`
+ * For dates this can include a range of short dates, as in `birthday/<:2000-1-1>`  (any date before Jan 1, 2000).
+ * For arrays this indicates specified size. `{top picks[$]<0:10>}` signals an array of strings containing up to 10 elements.
+ * For objects you can express basic variances by simply comma separating descriptions `{favorites[{}<{food$picture&},{song$band$},{movie$actors[$]}>]}`
+ * For binary this is the size in MB, it is generally only useful in describing its max size, for example, 500k: {picture&<0:0.5>} 
+
+Any type annotation indicates that a value is not nullable, unless ONLY the the left value is unbounded.  Thus, `{age#}` is nullable, as is `{age#<:99>}`, but `{age#<0:99>}` is not.
+
+
 **Best. Wire format. Ever.**
+
