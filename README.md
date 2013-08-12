@@ -133,7 +133,7 @@ BADASS/MOFO Schema:
 {Name$Chassis$Drive$First launch/Real?Thumbnail&Crew[$]}
 ````
 
-NOTE: 
+#### More Badassery...
 
 If basic BADASS just isn't enough, there is additional "Extra Really Yieldless" syntax which might be useful for code generators, basic data validation descriptions for explaining your service, generating empty records 
 and other such non-sense...  
