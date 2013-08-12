@@ -146,10 +146,10 @@ Annotations are generally range expressions in which either side may be unspecif
    * the type - as in `{calories#<u>}` which means that I may take in from 0 up to an unsigned long's worth of calories.
    * a range as in in which either number can be unbound and the first may include a type... `{age<21:100>}` means a value between 21 and 100 (drinking age in the US). 
  * For strings, this can contain:
-   * a ranged length - as in  `firstName$<:32>` (a requied string less than 32 characters)
+   * a ranged length - as in  `firstName$<1:32>` (a requied string less than 32 characters)
    * an enumeration of comma separated values, as in `MOFO$<Merely Awesome,The Awesomest>`
  * For dates this can include a range of short dates, as in `birthday/<:2000-1-1>`  (any date before Jan 1, 2000).
- * For arrays this indicates specified size. `{top picks[$]<:10>}` signals an array of strings containing up to 10 elements.
+ * For arrays this indicates specified size. `{top picks[$]<0:10>}` signals an array of strings containing up to 10 elements.
  * For objects you can express basic variances by simply comma separating descriptions `{favorites[{}<{food$picture&},{song$band$},{movie$actors[$]}>]}`
  * For binary this is the size in MB, it is generally only useful in describing its max size, for example, 500k: {picture&<0:0.5>} 
 
