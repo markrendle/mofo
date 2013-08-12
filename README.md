@@ -144,7 +144,7 @@ Annotations are generally range expressions in which either side may be unspecif
 
  * For numbers this can include:
    * the type - as in `{calories#<u>}` which means that I may take in from 0 up to an unsigned long's worth of calories.
-   * a range as in in which either number can be unbound and the first may include a type... `{age<1:100>}` means a value between 1 and 100. 
+   * a range as in in which either number can be unbound and the first may include a type... `{age<21:100>}` means a value between 21 and 100 (drinking age in the US). 
  * For strings, this can contain:
    * a ranged length - as in  `firstName$<:32>` (a requied string less than 32 characters)
    * an enumeration of comma separated values, as in `MOFO$<Merely Awesome,The Awesomest>`
