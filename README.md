@@ -31,6 +31,7 @@ Five basic primitive data types are supported: String, Number, Date, Boolean and
   * A null boolean is represented by a `?`
 * Binary data is represented by non-delimited, lowercase hexadecimal digit pairs surrounded by ampersands, as in `&4d4f464f&`.
   * A null binary value is represented by `&&`
+* Comments are surrounded by `©©` as in `©© Yes, unlike JSON, this MOFO allows comments ©©` 
 
 ### Structured data
 
