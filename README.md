@@ -17,20 +17,32 @@ I didn't do CS or anything like that, so I don't know BNF; therefore, the follow
 
 Five basic primitive data types are supported: String, Number, Date, Boolean and Binary:
 
-* String elements are surrounded by $, as in `$MOFO is awesome$`.
+* String elements are surrounded by `$`, as in `$MOFO is awesome$`.
   * An actual $ symbol in a string is escaped with a backslash, as in `$Total: \$599.99$`
   * Standard special string characters are represented as usual: `\n`, `\t`, etc
-  * Actual backslashes are represented by a double backslash
+  * Actual backslashes are represented by a double backslash `\\`
   * A null string is represented by `$$`
-* Number elements are surrounded by #, as in `42`
+* Number elements are surrounded by `#`, as in `#42`
   * A null number is represented by `##`
-  * More explicit number types can be expressed within the delimiters using [the C/C++ numeric literal notations](http://www.cplusplus.com/doc/tutorial/constants/).
-* Dates are surrounded by / and are in ISO 8601, as in `/2013-08-11T15:17:10Z/`
+  * More explicit number types can be expressed within the delimiters using suffixes:
+    * 16-bit integer: `1024s`
+    * 32-bit integer: `1024`
+    * 64-bit integer: `1024l`
+    * Single float: `1024.0f`
+    * Double float: `1024.0`
+    * To express constraints, see BADASSERY below
+  * Octal and hex formatting can be denoted using prefixes:
+    * Leading zero for octal: `02000`
+    * Leading `0x` for hex: `0x400`
+* Date/time values are surrounded by `/` and are in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601), as in `/2013-08-11T15:17:10Z/`
   * A null date is represented by `//`
+  * To specify a Time omit the date part of the expression, as in `/15:00:00Z/`
 * Boolean values are not delimited; they are represented by the single characters `^` for true and `!` for false
   * A null boolean is represented by a `?`
 * Binary data is represented by non-delimited, lowercase hexadecimal digit pairs surrounded by ampersands, as in `&4d4f464f&`.
   * A null binary value is represented by `&&`
+* UUIDs are surrounded by `=`, as in `=01234567-0123-4567-89ab-0123456789ab=`
+  * A null UUID is represented by `==`
 
 ### Structured data
 
