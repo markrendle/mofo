@@ -15,7 +15,7 @@ I didn't do CS or anything like that, so I don't know BNF; therefore, the follow
 
 ### Primitives
 
-Five basic primitive data types are supported: String, Number, Date, Boolean and Binary:
+Six basic primitive data types are supported: String, Number, Date, Boolean, Binary and UUID:
 
 * String elements are surrounded by `$`, as in `$MOFO is awesome$`.
   * An actual $ symbol in a string is escaped with a backslash, as in `$Total: \$599.99$`
