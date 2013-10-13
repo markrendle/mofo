@@ -21,8 +21,9 @@ Six basic primitive data types are supported: String, Number, Date, Boolean, Bin
   * An actual $ symbol in a string is escaped with a backslash, as in `$Total: \$599.99$`
   * Standard special string characters are represented as usual: `\n`, `\t`, etc
   * Actual backslashes are represented by a double backslash `\\`
-  * A null string is represented by `$$`
-* Number elements are surrounded by `#`, as in `#42`
+  * An empty string is represented by `$$`
+  * A null string is represented by `$\0$` \(but empty strings are better\)
+* Number elements are surrounded by `#`, as in `#42#`
   * A null number is represented by `##`
   * More explicit number types can be expressed within the delimiters using suffixes:
     * 16-bit integer: `1024s`
